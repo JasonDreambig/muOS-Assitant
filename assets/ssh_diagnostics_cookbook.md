@@ -87,14 +87,14 @@ find /opt/muos -name 'muxapp*' 2>/dev/null
 ```bash
 # Check if app appears in Applications
 ls /mnt/mmc/MUOS/application/
-ls /mnt/mmc/MUOS/application/<AppName>/
+ls /mnt/mmc/MUOS/application/$APP_NAME/
 
 # Verify launcher script exists and is executable
-ls -la /mnt/mmc/MUOS/application/<AppName>/launch.sh
-cat /mnt/mmc/MUOS/application/<AppName>/launch.sh
+ls -la /mnt/mmc/MUOS/application/$APP_NAME/launch.sh
+cat /mnt/mmc/MUOS/application/$APP_NAME/launch.sh
 
 # Check script runs directly (test outside muOS UI)
-sh /mnt/mmc/MUOS/application/<AppName>/launch.sh
+sh /mnt/mmc/MUOS/application/$APP_NAME/launch.sh
 
 # Environment when muOS launches apps (differs from SSH shell)
 # muOS apps inherit a limited environment — check PATH explicitly
@@ -122,7 +122,7 @@ dmesg | tail -60
 dmesg | grep -i -E 'error|fail|warn' | tail -30
 
 # App-specific log (if your app writes one)
-cat /tmp/<your-app>.log 2>/dev/null | tail -40
+cat /tmp/$YOUR_APP.log 2>/dev/null | tail -40
 
 # Live log watching (useful during testing)
 # tail -f /tmp/muos.log
@@ -134,8 +134,8 @@ cat /tmp/<your-app>.log 2>/dev/null | tail -40
 
 ```bash
 # Check script is executable
-ls -la /usr/bin/<your-binary>
-ls -la /opt/<your-app>/bin/
+ls -la /usr/bin/$YOUR_BINARY
+ls -la /opt/$YOUR_APP/bin/
 
 # Fix permissions if needed
 chmod +x /path/to/script
@@ -158,10 +158,10 @@ whoami
 ps aux | sed -n '1,120p'
 
 # Find a specific app or daemon
-ps aux | grep -E '<your-app-name>' | grep -v grep
+ps aux | grep -E "$YOUR_APP_NAME" | grep -v grep
 
 # Kill a stuck process
-kill $(ps aux | grep '<daemon-name>' | grep -v grep | awk '{print $1}')
+kill $(ps aux | grep "$DAEMON_NAME" | grep -v grep | awk '{print $1}')
 ```
 
 ---
@@ -197,14 +197,14 @@ find /mnt/union/ports -maxdepth 2 -type f | sed -n '1,160p'
 
 ```bash
 # Confirm a binary exists and is the right type
-which <binary-name>
-file $(which <binary-name>)
+which $BINARY_NAME
+file $(which $BINARY_NAME)
 
 # Check shared library dependencies (if not a static binary)
-ldd $(which <binary-name>) 2>/dev/null | head -20
+ldd $(which $BINARY_NAME) 2>/dev/null | head -20
 
 # Find a binary anywhere on device
-find /bin /sbin /usr/bin /usr/sbin /opt -name '<binary-name>' 2>/dev/null
+find /bin /sbin /usr/bin /usr/sbin /opt -name "$BINARY_NAME" 2>/dev/null
 
 # Confirm curl is available (needed for API calls)
 which curl
@@ -217,12 +217,12 @@ curl --version | head -1
 
 ```bash
 # Inspect an installed muOS archive package
-find /mnt/mmc/ARCHIVE/<PackageName> -type f 2>/dev/null
-cat /mnt/mmc/ARCHIVE/<PackageName>/README.md 2>/dev/null
+find /mnt/mmc/ARCHIVE/$PACKAGE_NAME -type f 2>/dev/null
+cat /mnt/mmc/ARCHIVE/$PACKAGE_NAME/README.md 2>/dev/null
 
 # Inspect an installed app
-find /mnt/mmc/MUOS/application/<AppName> -type f
-cat /mnt/mmc/MUOS/application/<AppName>/launch.sh
+find /mnt/mmc/MUOS/application/$APP_NAME -type f
+cat /mnt/mmc/MUOS/application/$APP_NAME/launch.sh
 
 # Check if a script is installed to /usr/bin
-ls -la /usr/bin/<app-name>
+ls -la /usr/bin/$APP_NAME

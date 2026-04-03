@@ -1,0 +1,59 @@
+name: Content Validation
+
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+    branches: ["**"]
+
+jobs:
+  validate:
+    name: Validate docs and templates
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      # -----------------------------------------------------------------------
+      # 1. Internal link check (catches broken relative Markdown links)
+      # -----------------------------------------------------------------------
+      - name: Install markdown-link-check
+        run: npm install -g markdown-link-check
+
+      - name: Check internal links
+        run: |
+          find . -name "*.md" \
+            ! -path "./.git/*" \
+            | sort \
+            | xargs -I{} markdown-link-check \
+                --config .github/mlc_config.json \
+                {}
+
+      # -----------------------------------------------------------------------
+      # 2. Skill frontmatter + table sync
+      # -----------------------------------------------------------------------
+      - name: Validate skill files
+        run: python3 tests/check_skills.py
+
+      # -----------------------------------------------------------------------
+      # 3. Cross-reference integrity (files listed in prompt_template.md exist)
+      # -----------------------------------------------------------------------
+      - name: Validate asset references
+        run: python3 tests/check_references.py
+
+      # -----------------------------------------------------------------------
+      # 4. Required template sections
+      # -----------------------------------------------------------------------
+      - name: Validate template sections
+        run: python3 tests/check_template_sections.py
+
+      # -----------------------------------------------------------------------
+      # 5. Shell snippet syntax
+      # -----------------------------------------------------------------------
+      - name: Validate shell snippets
+        run: sh tests/check_shell_snippets.sh

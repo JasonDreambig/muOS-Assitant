@@ -15,13 +15,13 @@ This project turns hard-won muOS experience into reusable assets:
 
 ## Folder Guide
 
-- [`muos_ai_appbuilder_plan.md`](/Users/jasonpromac/Downloads/001 Jason/Projects/GameConsole/MuOS-Ai-AppBuilder/muos_ai_appbuilder_plan.md)
+- [`muos_ai_appbuilder_plan.md`](muos_ai_appbuilder_plan.md)
   Main project plan.
 
-- [`assets`](/Users/jasonpromac/Downloads/001 Jason/Projects/GameConsole/MuOS-Ai-AppBuilder/assets)
+- [`assets`](assets/)
   Reusable assistant assets, prompts, templates, and references.
 
-- [`Ai-memory`](/Users/jasonpromac/Downloads/001 Jason/Projects/GameConsole/MuOS-Ai-AppBuilder/Ai-memory)
+- `Ai-memory/` (gitignored, created per-project)
   Project memory system for resuming work cleanly.
 
 ## Current Status
