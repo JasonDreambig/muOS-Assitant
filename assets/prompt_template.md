@@ -127,6 +127,7 @@ At the start of any task, scan `assets/Skills/` for `.md` files. Read the `descr
 | Skill file | Trigger |
 |---|---|
 | `Skills/SKILL-Game-import.md` | Deploying or importing a game, port, or runtime onto the device by hand |
+| `Skills/SKILL-Input-map.md` | Mapping handheld controls on muOS — raw input capture, evtest, D-pad, face buttons, sticks, triggers, and translating results into game or engine mappings |
 
 Add new skills to `assets/Skills/` following the format in `Skills/README.md`.
 
