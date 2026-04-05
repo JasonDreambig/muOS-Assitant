@@ -98,3 +98,4 @@ This ensures the AI knows the skill exists without having to scan the folder fro
 |---|---|
 | `SKILL-Game-import.md` | Deploying or importing a game, port, or runtime onto the device by hand |
 | `SKILL-Input-map.md` | Mapping handheld controls on muOS — raw input capture, evtest, D-pad, face buttons, sticks, triggers, and translating results into game or engine mappings |
+| `SKILL-Game-check.md` | Pre-export review of a Godot game before publishing to muOS — exit mechanism, input, display, renderer, audio, save system, pause menu, metadata, and muOS packaging requirements |
