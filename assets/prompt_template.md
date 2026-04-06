@@ -129,6 +129,7 @@ At the start of any task, scan `assets/Skills/` for `.md` files. Read the `descr
 | `Skills/SKILL-Game-import.md` | Deploying or importing a game, port, or runtime onto the device by hand |
 | `Skills/SKILL-Input-map.md` | Mapping handheld controls on muOS — raw input capture, evtest, D-pad, face buttons, sticks, triggers, and translating results into game or engine mappings |
 | `Skills/SKILL-Game-check.md` | Pre-export review of a Godot game before publishing to muOS — exit mechanism, input, display, renderer, audio, save system, pause menu, metadata, and muOS packaging requirements |
+| `Skills/SKILL-Godot-project-setup.md` | Creating, normalizing, or recovering an editable Godot source project before muOS packaging |
 
 Add new skills to `assets/Skills/` following the format in `Skills/README.md`.
 
@@ -168,6 +169,7 @@ For each: propose the smallest diagnostic step first. Reference `ssh_diagnostics
 |---|---|
 | `workflow_guide.md` | 10-step process: idea → package → release |
 | `project_intake_template.md` | Fill this out at the start of every new project |
+| `project_creation_protocol.md` | Intake-first workflow for turning a rough idea into a filled project brief |
 | `ssh_diagnostics_cookbook.md` | Tested SSH command sequences for diagnosing on-device issues |
 | `troubleshooting_patterns.md` | Common muOS app failure patterns and responses |
 | `package_templates.md` | Package layout options (terminal helper, Applications wrapper, archive) |
