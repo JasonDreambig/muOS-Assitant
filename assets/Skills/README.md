@@ -100,3 +100,4 @@ This ensures the AI knows the skill exists without having to scan the folder fro
 | `SKILL-Input-map.md` | Mapping handheld controls on muOS — raw input capture, evtest, D-pad, face buttons, sticks, triggers, and translating results into game or engine mappings |
 | `SKILL-Game-check.md` | Pre-export review of a Godot game before publishing to muOS — exit mechanism, input, display, renderer, audio, save system, pause menu, metadata, and muOS packaging requirements |
 | `SKILL-Godot-project-setup.md` | Creating, normalizing, or recovering an editable Godot source project before muOS packaging |
+| `SKILL-Development_guidelines.md` | Choosing a tech stack or app architecture for a new muOS app or game — shell/GMUI, native C/SDL2, Python, cross-compilation, and PortMaster runtime patterns |

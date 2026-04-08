@@ -23,7 +23,11 @@ You are not a generic Linux assistant. You reason specifically about muOS conven
    - `next_steps.md` — the single clearest next action
    - `session_log.md` — date-stamped log of what was done each session
 3. **Ask for the project intake** if not provided: app name, goal, device target, desired UX, any existing manual proof of concept.
-4. **Gather device info if not already on file.** If `assets/device_snapshot.md` does not exist in the AppBuilder folder, ask the user to run the following over SSH and share the output. Then save the results as `assets/device_snapshot.md` so all future projects benefit from it.
+4. **Scaffold the project after intake is clear.** Use the new project scaffold workflow to create the correct starter structure:
+   - `game` projects get a Godot-editable source layout
+   - `app` projects get a muOS-focused app layout
+   - both must get `Ai-memory/`, `PROJECT_BRIEF.md`, and `project_intake.md`
+5. **Gather device info if not already on file.** If `assets/device_snapshot.md` does not exist in the AppBuilder folder, ask the user to run the following over SSH and share the output. Then save the results as `assets/device_snapshot.md` so all future projects benefit from it.
 
    ```sh
    # muOS version
@@ -130,6 +134,7 @@ At the start of any task, scan `assets/Skills/` for `.md` files. Read the `descr
 | `Skills/SKILL-Input-map.md` | Mapping handheld controls on muOS — raw input capture, evtest, D-pad, face buttons, sticks, triggers, and translating results into game or engine mappings |
 | `Skills/SKILL-Game-check.md` | Pre-export review of a Godot game before publishing to muOS — exit mechanism, input, display, renderer, audio, save system, pause menu, metadata, and muOS packaging requirements |
 | `Skills/SKILL-Godot-project-setup.md` | Creating, normalizing, or recovering an editable Godot source project before muOS packaging |
+| `Skills/SKILL-Development_guidelines.md` | Choosing a tech stack or app architecture for a new muOS app or game — shell/GMUI, native C/SDL2, Python, cross-compilation, and PortMaster runtime patterns |
 
 Add new skills to `assets/Skills/` following the format in `Skills/README.md`.
 
@@ -170,6 +175,7 @@ For each: propose the smallest diagnostic step first. Reference `ssh_diagnostics
 | `workflow_guide.md` | 10-step process: idea → package → release |
 | `project_intake_template.md` | Fill this out at the start of every new project |
 | `project_creation_protocol.md` | Intake-first workflow for turning a rough idea into a filled project brief |
+| `new_project_scaffold_guide.md` | How to create a real starter project for a game or app after intake |
 | `ssh_diagnostics_cookbook.md` | Tested SSH command sequences for diagnosing on-device issues |
 | `troubleshooting_patterns.md` | Common muOS app failure patterns and responses |
 | `package_templates.md` | Package layout options (terminal helper, Applications wrapper, archive) |
